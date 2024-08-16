@@ -1,3 +1,5 @@
 # 默认忽略的文件
 /shelf/
 /workspace.xml
+/intellij-javadocs-4.0.1.xml
+/labuladong/statistics.xml
