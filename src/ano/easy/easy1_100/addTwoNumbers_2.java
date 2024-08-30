@@ -21,11 +21,8 @@ class ListNode {
     }
 }
 
-<<<<<<< HEAD
+
 public class addTwoNumbers_2 {
-=======
-class Solution {
->>>>>>> origin/main
 
     //两个 非空 的链表，表示两个非负的整数。
     //它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字
@@ -94,11 +91,8 @@ class Solution {
         //解释：342 + 465 = 807.
         ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
         ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-<<<<<<< HEAD
         ListNode res = new addTwoNumbers_2().addTwoNumbers(l1, l2);
-=======
-        ListNode res = new Solution().addTwoNumbers(l1, l2);
->>>>>>> origin/main
+
         while (res != null) {
             System.out.print(res.val + " ");
             res = res.next;
@@ -111,11 +105,8 @@ class Solution {
         //输出：[0]
         l1 = new ListNode(0);
         l2 = new ListNode(0);
-<<<<<<< HEAD
         res = new addTwoNumbers_2().addTwoNumbers(l1, l2);
-=======
-        res = new Solution().addTwoNumbers(l1, l2);
->>>>>>> origin/main
+
         while (res != null) {
             System.out.print(res.val + " ");
             res = res.next;
@@ -128,11 +119,8 @@ class Solution {
         //输出：[8,9,9,9,0,0,0,1]
         l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
         l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
-<<<<<<< HEAD
         res = new addTwoNumbers_2().addTwoNumbers(l1, l2);
-=======
-        res = new Solution().addTwoNumbers(l1, l2);
->>>>>>> origin/main
+
         while (res != null) {
             System.out.print(res.val + " ");
             res = res.next;
@@ -145,11 +133,8 @@ class Solution {
         //输出：[7,0,4,0,1]
         l1 = new ListNode(2, new ListNode(4, new ListNode(9)));
         l2 = new ListNode(5, new ListNode(6, new ListNode(4, new ListNode(9))));
-<<<<<<< HEAD
         res = new addTwoNumbers_2().addTwoNumbers(l1, l2);
-=======
-        res = new Solution().addTwoNumbers(l1, l2);
->>>>>>> origin/main
+
         while (res != null) {
             System.out.print(res.val + " ");
             res = res.next;
