@@ -1,4 +1,4 @@
-package ano.easy.easy1_100;
+package ano.medium.medium1_50;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -47,6 +47,7 @@ public class lengthOfLongestSubstring_3 {
     }
 
     public static void main(String[] args) {
+        //test
         String s;
         s = "abcabcbb";
         System.out.println(new lengthOfLongestSubstring_3().lengthOfLongestSubstring(s));

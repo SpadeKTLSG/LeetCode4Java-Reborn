@@ -1,4 +1,4 @@
-package ano.easy.easy1_100;
+package ano.medium.medium1_50;
 
 import java.util.*;
 
