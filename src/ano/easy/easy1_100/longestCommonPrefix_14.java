@@ -21,7 +21,7 @@ public class longestCommonPrefix_14 {
             return strs[0];
         }
         for (String s : strs) {
-            if (s == null) {
+            if (Objects.isNull(s)) {
                 return "";
             }
         }
@@ -30,33 +30,39 @@ public class longestCommonPrefix_14 {
         int p = 0;
         StringBuilder sb = new StringBuilder();
 
-        while (p < strs.length) {
+        while (p < strs[0].length() && check(p, strs))
+            sb.append(strs[0].charAt(p++));
 
-            if (check(p, strs)) {
-                sb.append(strs[0].charAt(p));
-            } else {
-                break;
-            }
-            p += 1;
-
-        }
         return sb.toString();
     }
 
+
     private boolean check(int p, String[] strs) {
 
-        //null直接返回false
-        if (Objects.isNull(strs[0].charAt(p))) {
+        //校验做好
+        if (p >= strs[0].length()) {
             return false;
         }
         char c = strs[0].charAt(p);
         for (String s : strs) {
-            if (Objects.isNull(s.charAt(p))) {
+            if (p >= s.length() || s.charAt(p) != c) {
                 return false;
             }
-            if (s.charAt(p) != c)
-                return false;
         }
         return true;
+    }
+
+
+    public static void main(String[] args) {
+
+        String[] strs;
+        strs = new String[]{"", ""};
+        System.out.println(new longestCommonPrefix_14().longestCommonPrefix(strs));
+        System.out.println();
+
+
+        strs = new String[]{"flower", "flower", "flower", "flower"};
+        System.out.println(new longestCommonPrefix_14().longestCommonPrefix(strs));
+        System.out.println();
     }
 }
