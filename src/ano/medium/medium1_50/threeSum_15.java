@@ -1,6 +1,7 @@
 package ano.medium.medium1_50;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class threeSum_15 {
 
@@ -22,18 +23,28 @@ public class threeSum_15 {
     //! 一: 个人简单模拟
     public List<List<Integer>> threeSum(int[] nums) {
 
+
+        //短路
+        if(nums.length == 3){
+            int sum = 0;
+            for(int e : nums){
+                sum += e;
+            }
+           return sum == 0 ? new ArrayList<>(Collections.singletonList(Arrays.stream(nums).boxed().collect(Collectors.toList()))) : new ArrayList<>();
+        }
+
+
         List<List<Integer>> res = new ArrayList<>();
 
-        //先升序排序
-        Arrays.sort(nums);
-
-        int toThrow = 0;//每次固定并抛弃掉一个数(全表)
+        Arrays.sort(nums); //升序排序
+        int toThrow = 0; //每次固定并抛弃掉一个数(全表)
 
         while (toThrow < nums.length) {
 
             //重新深拷贝一波nums到新nums_new, 但是跳过toThrow拷贝
             int[] nums_new = new int[nums.length - 1];
             int p = 0, i = 0;
+
             while (i < nums.length) {
                 if (i == toThrow) i += 1;
                 if (i == nums.length) break;
@@ -44,9 +55,6 @@ public class threeSum_15 {
 
             //针对toThrow设置tS, 在缩小的有序Array中双指针大小端查找
             int targetSum = -nums[toThrow];
-
-
-            //针对toThrow设置tS, 在缩小的有序Array中双指针大小端查找
             int left = 0;
             int right = nums_new.length - 1;
 
@@ -55,7 +63,6 @@ public class threeSum_15 {
                 int sum = nums_new[left] + nums_new[right];
 
                 if (sum == targetSum) {
-
                     //需要判断一下是不是已经有相同元素组成的家伙计入了(原本打算用HM, 现在直接清洗结果集)
                     List<Integer> triplet = Arrays.asList(nums[toThrow], nums_new[left], nums_new[right]);
                     Collections.sort(triplet);
@@ -78,7 +85,6 @@ public class threeSum_15 {
         }
 
         //清洗结果集
-        //将结果集中的List转为Set进行合并, 再转回List
         Set<String> set = new HashSet<>();
         List<List<Integer>> uniqueRes = new ArrayList<>();
         for (List<Integer> triplet : res) {
@@ -91,12 +97,26 @@ public class threeSum_15 {
         return uniqueRes;
     }
 
+
     public static void main(String[] args) {
         int[] nums;
-        nums = new int[]{-1, 0, 1, 2, -1, -4};
-        List<List<Integer>> res = new threeSum_15().threeSum(nums);
+        List<List<Integer>> res;
 
-        //format output:
+        //test
+        nums = new int[]{-1, 0, 1, 2, -1, -4};
+        res = new threeSum_15().threeSum(nums);
+        System.out.println(res);
+        System.out.println();
+
+        //test
+        nums = new int[]{-1, 0, 1};
+        res = new threeSum_15().threeSum(nums);
+        System.out.println(res);
+        System.out.println();
+
+        //test
+        nums = new int[]{-1, 0, 4};
+        res = new threeSum_15().threeSum(nums);
         System.out.println(res);
         System.out.println();
     }
