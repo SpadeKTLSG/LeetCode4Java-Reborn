@@ -4,24 +4,6 @@ import java.util.*;
 
 import static java.util.Optional.ofNullable;
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
-
 public class addTwoNumbers_2 {
 
     //两个 非空 的链表，表示两个非负的整数。
