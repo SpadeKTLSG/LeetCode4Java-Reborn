@@ -14,6 +14,7 @@ public class swapPairs_24 {
     //输入：head = [1,2,3,4]
     //输出：[2,1,4,3]
 
+    //思路
     //! 一: 我直接开摆, 扫一遍记录到数组后凉凉交换之后再重建
     public ListNode swapPairs(ListNode head) {
 
