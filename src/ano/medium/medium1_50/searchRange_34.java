@@ -28,6 +28,9 @@ public class searchRange_34 {
 
 
         // 一 : 正常前后查找
+        //之前思维的点有问题, 太死板的遵照i++的思路把两个指针移动了. 这里修改的i遍历, 当找到了直接存储就很好
+
+/*
         int front = -1, end = -1;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target) {
@@ -37,10 +40,52 @@ public class searchRange_34 {
                 end = i;
             }
         }
-
-
         return front == -1 ? new int[]{-1, -1} : new int[]{front, end};
+*/
 
+        //二 : 正常解法 二分查找
+
+        //二分记得怎么写吗?
+        int first = findFirst(nums, target);
+        int last = findLast(nums, target);
+
+        return new int[]{first, last};
+
+    }
+
+    private int findFirst(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] >= target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (left < nums.length && nums[left] == target) {
+            return left;
+        }
+        return -1;
+    }
+
+    private int findLast(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        if (right >= 0 && nums[right] == target) {
+            return right;
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
 
     }
 }
